@@ -43,7 +43,8 @@ onMounted(() => {
         <span>></span>
       </button>
     </div>
-    <p id="placeholder">Lorem ipsum dolor sit amet sit gubergren qui eum diam sea nonumy ea takimata eos dolores blandit eos takimata.
+    <p id="placeholder">Lorem ipsum dolor sit amet sit gubergren qui eum diam sea nonumy ea takimata eos dolores blandit
+      eos takimata.
       Diam dolor gubergren qui no invidunt tempor clita erat amet duo diam nulla at vulputate clita. Amet duis est amet.
       Erat no et eos vero ipsum sea ea accusam in qui labore kasd voluptua accumsan. Magna praesent stet feugiat sed
       sadipscing gubergren dolore diam diam hendrerit dolor ipsum dolor eu. Accusam dolor placerat aliquip ipsum tempor
@@ -52,7 +53,8 @@ onMounted(() => {
       commodo magna dolores tempor. Voluptua erat sed aliquyam. Qui erat dolor amet nonumy dolor et sed aliquyam diam
       sea dolor dolor magna iriure molestie vel. Aliquyam ea aliquam eirmod aliquip sea duis et consequat labore et sea
       consequat et invidunt. Dolore justo sit option ea diam vulputate. Te diam dolore lorem blandit tempor. Rebum
-      sanctus lobortis iriure ea eros nonummy dolor sadipscing at.Lorem ipsum dolor sit amet sit gubergren qui eum diam sea nonumy ea takimata eos dolores blandit eos takimata.
+      sanctus lobortis iriure ea eros nonummy dolor sadipscing at.Lorem ipsum dolor sit amet sit gubergren qui eum diam
+      sea nonumy ea takimata eos dolores blandit eos takimata.
       Diam dolor gubergren qui no invidunt tempor clita erat amet duo diam nulla at vulputate clita. Amet duis est amet.
       Erat no et eos vero ipsum sea ea accusam in qui labore kasd voluptua accumsan. Magna praesent stet feugiat sed
       sadipscing gubergren dolore diam diam hendrerit dolor ipsum dolor eu. Accusam dolor placerat aliquip ipsum tempor
@@ -80,12 +82,13 @@ onMounted(() => {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  min-width: 100vw;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   /* 垂直排列，类似 StackPanel */
   min-height: 100vh;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 /* --- Banner 样式大大简化 --- */
@@ -95,7 +98,7 @@ onMounted(() => {
   /* 保留，用于定位内部的左右按钮 */
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   /* 使用 100% 而不是 100vw，因为它现在在正常流中 */
   height: 50vh;
   overflow: hidden;
@@ -105,7 +108,7 @@ onMounted(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit:scale-down;
+  object-fit: scale-down;
   display: block;
 }
 
@@ -159,6 +162,6 @@ onMounted(() => {
 }
 
 #placeholder {
-  padding:30px;
+  padding: 30px;
 }
 </style>
