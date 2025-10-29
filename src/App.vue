@@ -2,10 +2,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import AMap from './components/AMap.vue'
-import NavigationBar from './components/NavBar.vue'
-import Classifiers from './components/Classifiers.vue'
-import test from './components/Test.vue'
+import NavigationBar from './components/AppNavigation.vue'
+import Classifiers from './components/CategoryGrid.vue'
+import ImageCarousel from './components/ImageCarousel.vue'
 
 const isScrolled = ref(false)
 const currentImageIndex = ref(0)

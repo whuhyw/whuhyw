@@ -1,5 +1,5 @@
 <script setup>
-import Classified from './Classified.vue';
+import Classified from './CategoryCard.vue';
 import image1 from '@/assets/无标题.png';
 </script>
 
