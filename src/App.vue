@@ -1,7 +1,10 @@
+<!-- 这个页面的主题是自适应的 -->
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import AMap from './components/AMap.vue'
 import NavigationBar from './components/NavBar.vue'
+import Classifiers from './components/Classifiers.vue'
 import test from './components/Test.vue'
 
 const isScrolled = ref(false)
@@ -36,39 +39,25 @@ onMounted(() => {
     <!-- 2. main 现在是一个 Flex 项目，会自动占据剩余空间 -->
     <div class="banner-container">
       <img id="hero" :src="images[currentImageIndex]" />
+      <img id="blur" :src="images[currentImageIndex]" />
       <button class="banner-btn prev" @click="prevImage">
         <span><</span>
       </button>
       <button class="banner-btn next" @click="nextImage">
         <span>></span>
       </button>
+
+      <div class="dots-container">
+        <span v-for="(image, index) in images" :key="index" :class="['dot', { active: currentImageIndex === index }]"
+          @click="currentImageIndex = index"/>
+      </div>
     </div>
-    <p id="placeholder">Lorem ipsum dolor sit amet sit gubergren qui eum diam sea nonumy ea takimata eos dolores blandit
-      eos takimata.
-      Diam dolor gubergren qui no invidunt tempor clita erat amet duo diam nulla at vulputate clita. Amet duis est amet.
-      Erat no et eos vero ipsum sea ea accusam in qui labore kasd voluptua accumsan. Magna praesent stet feugiat sed
-      sadipscing gubergren dolore diam diam hendrerit dolor ipsum dolor eu. Accusam dolor placerat aliquip ipsum tempor
-      eum diam est eros kasd kasd sadipscing consequat rebum te esse ut. Gubergren et ipsum sadipscing ipsum lorem
-      dignissim amet labore diam dolor et ipsum. Eu rebum sit lorem elitr lorem consetetur accusam eos consetetur
-      commodo magna dolores tempor. Voluptua erat sed aliquyam. Qui erat dolor amet nonumy dolor et sed aliquyam diam
-      sea dolor dolor magna iriure molestie vel. Aliquyam ea aliquam eirmod aliquip sea duis et consequat labore et sea
-      consequat et invidunt. Dolore justo sit option ea diam vulputate. Te diam dolore lorem blandit tempor. Rebum
-      sanctus lobortis iriure ea eros nonummy dolor sadipscing at.Lorem ipsum dolor sit amet sit gubergren qui eum diam
-      sea nonumy ea takimata eos dolores blandit eos takimata.
-      Diam dolor gubergren qui no invidunt tempor clita erat amet duo diam nulla at vulputate clita. Amet duis est amet.
-      Erat no et eos vero ipsum sea ea accusam in qui labore kasd voluptua accumsan. Magna praesent stet feugiat sed
-      sadipscing gubergren dolore diam diam hendrerit dolor ipsum dolor eu. Accusam dolor placerat aliquip ipsum tempor
-      eum diam est eros kasd kasd sadipscing consequat rebum te esse ut. Gubergren et ipsum sadipscing ipsum lorem
-      dignissim amet labore diam dolor et ipsum. Eu rebum sit lorem elitr lorem consetetur accusam eos consetetur
-      commodo magna dolores tempor. Voluptua erat sed aliquyam. Qui erat dolor amet nonumy dolor et sed aliquyam diam
-      sea dolor dolor magna iriure molestie vel. Aliquyam ea aliquam eirmod aliquip sea duis et consequat labore et sea
-      consequat et invidunt. Dolore justo sit option ea diam vulputate. Te diam dolore lorem blandit tempor. Rebum
-      sanctus lobortis iriure ea eros nonummy dolor sadipscing at.</p>
+
+    <Classifiers/>
   </div>
 </template>
 
 <style>
-/* 重置所有默认样式 */
 * {
   margin: 0;
   padding: 0;
@@ -86,29 +75,45 @@ onMounted(() => {
   max-width: 100vw;
   display: flex;
   flex-direction: column;
-  /* 垂直排列，类似 StackPanel */
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* --- Banner 样式大大简化 --- */
+
 .banner-container {
   position: relative;
-  padding: 0;
   /* 保留，用于定位内部的左右按钮 */
+  padding: 0;
   top: 0;
   left: 0;
   width: 100%;
   /* 使用 100% 而不是 100vw，因为它现在在正常流中 */
   height: 50vh;
+  z-index: 0;
   overflow: hidden;
+  will-change: transform;  /* 添加这行 */
+  transform: translateZ(0);  /* 添加这行 */
 }
 
 #hero {
+  /* visibility: hidden; */
   position: relative;
   width: 100%;
   height: 100%;
   object-fit: scale-down;
+  z-index: 5;
+  display: block;
+}
+
+#blur {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: blur(5px);
+  background: white;
+  z-index: 0;
   display: block;
 }
 
@@ -129,7 +134,7 @@ onMounted(() => {
   justify-content: center;
   color: white;
   font-size: 20px;
-  z-index: 1;
+  z-index: 10;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -164,4 +169,33 @@ onMounted(() => {
 #placeholder {
   padding: 30px;
 }
+
+.dots-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: rgba(0, 0, 0, 0.55);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 </style>

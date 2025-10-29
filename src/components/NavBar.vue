@@ -2,7 +2,7 @@
   <nav class="navbar" :class="{ 'scrolled': isScrolled }">
     <div class="nav-container">
       <div class="logo">
-        <a href="#home">Your Logo</a>
+        <a href="#home">方寸屏间，万里河山</a>
       </div>
       
       <div class="nav-links" :class="{ 'active': isMenuOpen }">
