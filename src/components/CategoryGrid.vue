@@ -14,15 +14,15 @@ import image1 from '@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝
 
 <style scoped>
 #classifiers {
-    margin-top: 5vw;
-    padding-left: 8vw;
-    padding-right: 8vw;
+    margin-top: 4vw;
+    padding-left: 12vw;
+    padding-right: 12vw;
     display: flex;
     flex-direction: row;
     /* justify-content: space-around; */
     align-items: center;
     width: 100%;
     height:100%;
-    gap: 8vw;
+    gap: 10vw;
 }
 </style>

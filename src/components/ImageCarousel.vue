@@ -45,7 +45,7 @@ const goToImage = (index) => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,9 +53,11 @@ const goToImage = (index) => {
 }
 
 .carousel-image {
-  width: 100%;
+  min-width: 70vw;
   height: 100%;
-  object-fit: scale-down;
+  object-fit:cover;
+  object-position: center 65%;
+  align-items: center;
   z-index: 5;
 }
 
@@ -63,7 +65,7 @@ const goToImage = (index) => {
   position: absolute;
   width: 100%;
   height: 100%;
-  filter: blur(3.5px);
+  filter: blur(5px);
   object-fit: fill;
   z-index: 0;
 }
