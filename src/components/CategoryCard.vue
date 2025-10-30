@@ -12,7 +12,7 @@ const props = defineProps({
     imgSrc: {
         type: String,
         required: true,
-        default: () => new URL('@/assets/无标题.png', import.meta.url).href
+        default: () => new URL('@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原2.png', import.meta.url).href
     },
     title: {
         type: String,

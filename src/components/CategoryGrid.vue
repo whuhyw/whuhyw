@@ -1,6 +1,6 @@
 <script setup>
 import Classified from './CategoryCard.vue';
-import image1 from '@/assets/无标题.png';
+import image1 from '@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原2.png';
 </script>
 
 <template>
