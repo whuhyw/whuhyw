@@ -6,13 +6,6 @@ import ImageCarousel from './components/ImageCarousel.vue'
 
 const isScrolled = ref(false)
 
-const currentImageIndex = ref(0)
-const images = [
-  new URL('@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原1.png', import.meta.url).href,
-  new URL('@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原2.png', import.meta.url).href,
-  new URL('@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原3.png', import.meta.url).href,
-  // 在这里添加更多图片路径
-]
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 }
@@ -25,8 +18,7 @@ onMounted(() => {
 <template>
   <div id="app">
     <NavigationBar :isScrolled="isScrolled" />
-    <ImageCarousel :images="images"/>
-    <Classifiers/>
+    <router-view class="router"/>
   </div>
 </template>
 
