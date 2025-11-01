@@ -29,10 +29,6 @@ const props = defineProps({
     type: String,
     default: '默认标记'
   },
-  infoContent: {
-    type: String,
-    default: '<p>默认信息内容</p>'
-  }
 })
 
 const mapContainer = ref(null)
@@ -75,14 +71,6 @@ const initMap = async () => {
 
     map.add(marker)
 
-    // const infoWindow = new AMap.InfoWindow({
-    //   content: props.infoContent,
-    //   offset: new AMap.Pixel(0, -30)
-    // })
-
-    marker.on('click', () => {
-      infoWindow.open(map, marker.getPosition())
-    })
   } catch (error) {
     console.error('地图加载失败:', error)
   }
