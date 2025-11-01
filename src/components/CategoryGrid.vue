@@ -1,28 +1,41 @@
 <script setup>
-import Classified from './CategoryCard.vue';
-import image1 from '@/assets/images/广袤之境/呼伦贝尔大草原/呼伦贝尔大草原2.png';
+import CategoryCard from './CategoryCard.vue';
+import scenicData from '@/data/scenicData.js';
+
+const categories = scenicData.Categories;
+const getCoverImage = (category) => {
+    // const url = new URL(
+    //     `../assets/images/${category.Name}/${category.CoverImage}`,
+    //     import.meta.url
+    // ).href;
+    // console.log(url);
+    // console.log(`../assets/images/${category.Name}/${category.CoverImage}`);
+    return `./src/assets/images/${category.Name}/${category.CoverImage}`;
+};
 </script>
 
 <template>
     <div id="classifiers">
-        <Classified title="凌云之巅" :imgSrc="image1"/>
-        <Classified title="蜿蜒之脉"/>
-        <Classified title="瑰丽之彩"/>
-        <Classified title="广袤之境"/>
+        <CategoryCard 
+            v-for="category in categories" 
+            :title="category.Name"
+            :imgSrc="getCoverImage(category)"
+            :categoryId="category.Id"
+        />
     </div>
 </template>
 
 <style scoped>
 #classifiers {
     margin-top: 4vw;
-    padding-left: 12vw;
-    padding-right: 12vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
     display: flex;
     flex-direction: row;
     /* justify-content: space-around; */
     align-items: center;
     width: 100%;
     height:100%;
-    gap: 10vw;
+    gap: 8vw;
 }
 </style>
