@@ -1,8 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import NavigationBar from './components/AppNavigation.vue'
-import Classifiers from './components/CategoryGrid.vue'
-import ImageCarousel from './components/ImageCarousel.vue'
 
 const isScrolled = ref(false)
 
@@ -22,7 +20,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +41,11 @@ onMounted(() => {
   overflow-x: hidden;
 }
 
+.router {
+  width: 100%;
+  max-height: calc(100vh - 60px);
+}
+
 @media (max-width: 768px) {
   .banner-btn {
     width: 40px;
@@ -50,5 +53,4 @@ onMounted(() => {
     font-size: 16px;
   }
 }
-
 </style>
