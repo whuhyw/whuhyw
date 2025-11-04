@@ -42,6 +42,10 @@ onMounted(() => {
   overflow-y: auto;
 }
 
+.router-view {
+  transition: opacity 0.3s ease;
+}
+
 @media (max-width: 768px) {
   .banner-btn {
     width: 40px;
