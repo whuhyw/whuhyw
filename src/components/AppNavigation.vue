@@ -1,10 +1,15 @@
 <template>
   <nav class="navbar" :class="{ 'scrolled': isScrolled }">
     <div class="nav-container">
-      <div class="logo">
-        <router-link to="/">方寸屏间，万里河山</router-link>
+      <div style="display: flex;flex-direction: row;">
+        <button v-if="showBackButton" class="back-button" @click="goBack">
+          ←
+        </button>
+        <div class="logo">
+          <router-link to="/">方寸屏间，万里河山</router-link>
+        </div>
       </div>
-      
+
       <div class="nav-links" :class="{ 'active': isMenuOpen }">
         <router-link to="/about" @click="closeMenu">关于</router-link>
       </div>
@@ -14,8 +19,27 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 export default {
   name: 'NavigationBar',
+  setup() {
+    const route = useRoute()
+    const router = useRouter()
+
+    // 判断是否显示返回按钮
+    const showBackButton = computed(() => route.path !== '/')
+
+    const goBack = () => {
+      router.back()
+    }
+
+    return {
+      showBackButton,
+      goBack
+    }
+  },
   props: {
     isScrolled: {
       type: Boolean,
@@ -67,6 +91,20 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #888888;
 }
 
 .logo a {
