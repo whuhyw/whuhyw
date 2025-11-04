@@ -35,6 +35,5 @@ const firstImageUrl = (attraction) => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8vw;
-    ;
 }
 </style>

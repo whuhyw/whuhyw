@@ -40,7 +40,7 @@ const handleClick = () => {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     border-radius: 10px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     transition: all 0.3s ease-in-out;
@@ -54,7 +54,6 @@ const handleClick = () => {
     /* visibility: collapse; */
     aspect-ratio: 4/3;
     width: 100%;
-    height: 100%;
     object-fit:cover;
     border-radius: 10px;
 }

@@ -24,26 +24,22 @@ onMounted(() => {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 #app {
   padding: 0;
-  padding-top: 60px;
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100vw;
-  max-width: 100vw;
+  height:100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
 }
 
 .router {
-  width: 100%;
-  max-height: calc(100vh - 60px);
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-y: auto;
 }
 
 @media (max-width: 768px) {

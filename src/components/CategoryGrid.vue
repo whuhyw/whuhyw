@@ -33,9 +33,9 @@ const getCoverImage = (category) => {
     display: flex;
     flex-direction: row;
     /* justify-content: space-around; */
-    align-items: center;
+    align-items: top;
     width: 100%;
-    height:100%;
+    height: fit-content;
     gap: 8vw;
 }
 </style>

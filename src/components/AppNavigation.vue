@@ -6,10 +6,7 @@
       </div>
       
       <div class="nav-links" :class="{ 'active': isMenuOpen }">
-        <!-- <a href="#home" @click="closeMenu">首页</a>
-        <a href="#landmarks" @click="closeMenu">地标</a>
-        <a href="#culture" @click="closeMenu">文化</a>
-        <a href="#about" @click="closeMenu">关于</a> -->
+        <a href="#about" @click="closeMenu">关于</a>
       </div>
 
       <div class="menu-toggle" @click="toggleMenu">
@@ -55,7 +52,7 @@ export default {
   width: 100%;
 
   padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   z-index: 1000; /* z-index 保留，确保在内容之上 */
