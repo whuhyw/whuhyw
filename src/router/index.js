@@ -18,6 +18,11 @@ const routes = [
     path: '/attraction/:categoryId/:attractionId',
     name: 'AttractionDetail',
     component: AttractionDetail,
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('@/components/About.vue')
   }
 ];
 

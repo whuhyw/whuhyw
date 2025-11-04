@@ -2,18 +2,13 @@
   <nav class="navbar" :class="{ 'scrolled': isScrolled }">
     <div class="nav-container">
       <div class="logo">
-        <a href="#home">方寸屏间，万里河山</a>
+        <router-link to="/">方寸屏间，万里河山</router-link>
       </div>
       
       <div class="nav-links" :class="{ 'active': isMenuOpen }">
-        <a href="#about" @click="closeMenu">关于</a>
+        <router-link to="/about" @click="closeMenu">关于</router-link>
       </div>
 
-      <div class="menu-toggle" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </nav>
 </template>
@@ -41,10 +36,10 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
-/* --- 核心：移除固定定位，让导航栏回归文档流 --- */
 .navbar {
   position: fixed;
   top: 0;
@@ -55,11 +50,10 @@ export default {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  z-index: 1000; /* z-index 保留，确保在内容之上 */
+  z-index: 100;
   height: 60px;
 }
 
-/* scrolled 类现在只负责改变视觉效果，不再影响布局定位 */
 .navbar.scrolled {
   padding: 0.5rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -82,6 +76,11 @@ export default {
   color: #333;
 }
 
+
+.logo a:hover {
+  color: #888888;
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -95,38 +94,18 @@ export default {
 }
 
 .nav-links a:hover {
-  color: #007bff;
-}
-
-/* 移动端菜单按钮 */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #333;
-  margin: 3px 0;
-  transition: 0.3s;
+  color: #888888;
 }
 
 /* 响应式设计 */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .menu-toggle {
     display: flex;
   }
 
-  /* 
-    注意：移动端菜单本身仍然是 fixed 的，因为它需要覆盖整个屏幕。
-    因为导航栏现在是正常流元素且位于顶部，所以 top: 60px 可以安全地
-    将菜单定位在导航栏正下方。
-  */
   .nav-links {
     position: fixed;
-    top: 60px; /* 这个值现在与 navbar 的 height 完美对应 */
+    top: 60px;
     left: -100%;
     width: 100%;
     height: calc(100vh - 60px);
@@ -146,5 +125,5 @@ export default {
     font-size: 1.2rem;
     margin: 1rem 0;
   }
-}
+} */
 </style>
