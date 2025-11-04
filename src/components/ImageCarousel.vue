@@ -1,16 +1,26 @@
 <template>
   <div class="carousel-container">
-    <img :src="images[currentImageIndex]" alt="Banner Image" class="carousel-image">
-    <img :src="images[currentImageIndex]" alt="Banner Image" class="blurred-image">
+    <transition name="image" mode="in-out">
+      <img 
+        :key="currentImageIndex"
+        :src="images[currentImageIndex]" 
+        alt="Banner Image" 
+        class="carousel-image"
+      >
+    </transition>
+    <transition name="image" mode="in-out">
+      <img 
+        :key="currentImageIndex"
+        :src="images[currentImageIndex]" 
+        alt="Banner Image" 
+        class="blurred-image"
+      >
+    </transition>
     <button @click="prevImage" class="carousel-btn prev-btn">&#10094;</button>
     <button @click="nextImage" class="carousel-btn next-btn">&#10095;</button>
     <div class="dots-container">
-      <span
-        v-for="(image, index) in images"
-        :key="index"
-        @click="goToImage(index)"
-        :class="{ 'dot': true, 'active': currentImageIndex === index }"
-      ></span>
+      <span v-for="(image, index) in images" :key="index" @click="goToImage(index)"
+        :class="{ 'dot': true, 'active': currentImageIndex === index }"></span>
     </div>
   </div>
 </template>
@@ -45,7 +55,7 @@ const goToImage = (index) => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,12 +63,15 @@ const goToImage = (index) => {
 }
 
 .carousel-image {
-  min-width: 70vw;
+  position: absolute;
+  width: 70vw;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   object-position: center 65%;
   align-items: center;
-  z-index: 5;
+
+  z-index: 5;opacity: 1;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .blurred-image {
@@ -68,6 +81,19 @@ const goToImage = (index) => {
   filter: blur(5px);
   object-fit: fill;
   z-index: 0;
+  
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.image-enter-active,
+.image-leave-active {
+  transition: opacity 0.4s ease-in-out;
+}
+
+.image-enter-from,
+.image-leave-to {
+  opacity: 0;
 }
 
 .carousel-btn {
@@ -112,6 +138,5 @@ const goToImage = (index) => {
 }
 
 .dot.active {
-  background-color: white;
-}
+  background-color: white;}
 </style>
