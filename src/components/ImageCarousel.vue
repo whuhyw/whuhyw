@@ -55,7 +55,7 @@ const goToImage = (index) => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,13 +100,13 @@ const goToImage = (index) => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 17px;
   cursor: pointer;
-  font-size: 24px;
-  border-radius: 5px;
+  font-size: 20px;
+  border-radius: 7.5px;
   z-index: 10;
 }
 

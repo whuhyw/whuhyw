@@ -6,7 +6,7 @@
           ←
         </button>
         <div class="logo">
-          <router-link to="/">方寸屏间，万里河山</router-link>
+          <router-link to="/" style="font-family: '宋体';">方寸屏间，万里河山</router-link>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ export default {
   width: 100%;
 
   padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   z-index: 100;
@@ -84,7 +84,7 @@ export default {
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 20px;
   height: 100%;

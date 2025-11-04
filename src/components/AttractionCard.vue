@@ -1,6 +1,6 @@
 <template>
-    <div id="classified" @click="handleClick">
-        <img id="image" :src="props.imgSrc"/>
+    <div id="attraction" @click="handleClick">
+        <img id="image" :src="props.imgSrc" />
         <h2>{{ props.title }}</h2>
         <p>{{ props.zen }}</p>
     </div>
@@ -20,7 +20,7 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    zen:{
+    zen: {
         type: String,
         required: true,
     },
@@ -40,7 +40,7 @@ const handleClick = () => {
 </script>
 
 <style scoped>
-attraction {
+.attraction {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,13 +52,13 @@ attraction {
     transition: all 0.3s ease-in-out;
 }
 
-attraction:hover {
+.attraction:hover {
     transform: scale(1.05);
 }
 
 #image {
     /* visibility: collapse; */
-    aspect-ratio: 1/1;
+    aspect-ratio: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -70,6 +70,5 @@ h2 {
     font-size: 1.5rem;
     font-weight: bold;
     text-align: left;
-    font-family: '宋体';
-}
+    font-family: '宋体';}
 </style>

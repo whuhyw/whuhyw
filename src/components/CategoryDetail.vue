@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="categoryDetail">
+        <h1>{{ category.Name }}</h1>
         <div class="attractions">
             <AttractionCard class="attraction" v-for="attraction in category.Attractions" :title="attraction.Name"
                 :imgSrc="firstImageUrl(attraction)" :categoryId="categoryId" :zen="attraction.Zen"
@@ -28,12 +29,30 @@ const firstImageUrl = (attraction) => {
 </script>
 
 <style scoped>
-.attractions {
-    margin-top: 4vw;
+.categoryDetail {
+    padding-top: 60px;
     padding-left: 5vw;
     padding-right: 5vw;
+}
+
+.categoryDetail h1 {
+    font-family: "宋体";
+    margin-top: 2vw;
+}
+
+.attractions {
+    margin-top: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5vw;
+}
+
+@media (max-width: 1200px) {
+  .attractions {
     grid-template-columns: repeat(3, 1fr);
-    gap: 8vw;
+    gap:4vw;
+  }
 }
 </style>
