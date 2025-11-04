@@ -40,6 +40,7 @@ const processedImages = computed(() => {
   position: fixed;
   left: 1.5vw;
   top: 8vh;
+  z-index: 10;
 }
 
 #summary {
