@@ -139,7 +139,7 @@ const goToImage = (index) => {
   font-family: 'rtsxt';
   font-size: 8vh;
   font-weight: bold;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  text-shadow: 5px 5px 0px rgba(255, 255, 255, 0.75);
   z-index: 10;
 }
 
