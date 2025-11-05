@@ -20,9 +20,13 @@
     <button @click="prevImage" class="carousel-btn prev-btn">&#10094;</button>
     <button @click="nextImage" class="carousel-btn next-btn">&#10095;</button>
     <a class="title">{{ props.title }}</a>
-    <div class="dots-container">
+    <div class="dots-container" v-if="!props.showScrollHint">
       <span v-for="(image, index) in images" :key="index" @click="goToImage(index)"
         :class="{ 'dot': true, 'active': currentImageIndex === index }"></span>
+    </div>
+    <div class="scroll-hint" v-if="props.showScrollHint">
+      <i class="scroll-icon"></i>
+      <span class="scroll-text">向下滚动</span>
     </div>
   </div>
 </template>
@@ -47,6 +51,10 @@ const props = defineProps({
   carouselHeight:{
     type: String,
     default: '65vh'
+  },
+  showScrollHint: {
+    type: Boolean,
+    default: false
   }
 });
 
@@ -163,5 +171,66 @@ const goToImage = (index) => {
 }
 
 .dot.active {
-  background-color: white;}
+  background-color: white;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  animation: float 2s ease-in-out infinite;
+}
+
+.scroll-icon {
+  width: 25px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 15px;
+  position: relative;
+}
+
+.scroll-icon::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  animation: scroll 2s ease-in-out infinite;
+}
+
+.scroll-text {
+  color: white;
+  margin-top: 10px;
+  font-size: 12px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    top: 8px;
+  }
+  100% {
+    opacity: 0;
+    top: 30px;
+  }
+}
 </style>

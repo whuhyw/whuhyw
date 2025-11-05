@@ -69,7 +69,7 @@ export default {
   width: 100%;
 
   padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   z-index: 100;

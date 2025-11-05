@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" title="你想遨游怎样的中国？" />
+    <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" :showScrollHint="true"
+      title="你想遨游怎样的中国？" />
     <CategoryGrid />
   </div>
 </template>
