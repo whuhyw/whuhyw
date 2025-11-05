@@ -31,7 +31,6 @@ const images = [
 .title {
   font-size: 10vh;
   font-family: 'rtsxt';
-  color: #111;
   position: absolute;
   top: 42vh;
   left: 20vw;

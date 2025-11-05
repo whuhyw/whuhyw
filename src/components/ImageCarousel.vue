@@ -143,7 +143,6 @@ const goToImage = (index) => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #111;
   font-family: 'rtsxt';
   font-size: 8vh;
   font-weight: bold;

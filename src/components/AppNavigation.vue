@@ -96,7 +96,6 @@ export default {
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #333;
   padding: 0.5rem 1rem;
   transition: color 0.3s ease;
 }
@@ -109,7 +108,6 @@ export default {
   margin-top: 5px;
   font-family: 'rtsxt';
   font-size: 40px;
-  color: #333;
   transition: color 0.3s ease;
 }
 
