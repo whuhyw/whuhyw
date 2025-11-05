@@ -1,15 +1,16 @@
 <template>
-  <div class="carousel-container">
+  <div class="carousel-container" :style="{height: props.carouselHeight }">
     <transition name="image" mode="in-out">
       <img 
         :key="currentImageIndex"
         :src="images[currentImageIndex]" 
         alt="Banner Image" 
+        :width="props.imgWidth"
         class="carousel-image"
       >
     </transition>
     <transition name="image" mode="in-out">
-      <img 
+      <img
         :key="currentImageIndex"
         :src="images[currentImageIndex]" 
         alt="Banner Image" 
@@ -18,6 +19,7 @@
     </transition>
     <button @click="prevImage" class="carousel-btn prev-btn">&#10094;</button>
     <button @click="nextImage" class="carousel-btn next-btn">&#10095;</button>
+    <a class="title">{{ props.title }}</a>
     <div class="dots-container">
       <span v-for="(image, index) in images" :key="index" @click="goToImage(index)"
         :class="{ 'dot': true, 'active': currentImageIndex === index }"></span>
@@ -33,6 +35,18 @@ const props = defineProps({
   images: {
     type: Array,
     required: true
+  },
+  title:{
+    type: String,
+    default:''
+  },
+  imgWidth: {
+    type: String,
+    default: '70%'
+  },
+  carouselHeight:{
+    type: String,
+    default: '65vh'
   }
 });
 
@@ -55,7 +69,6 @@ const goToImage = (index) => {
 .carousel-container {
   position: relative;
   width: 100%;
-  height: 65vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +77,6 @@ const goToImage = (index) => {
 
 .carousel-image {
   position: absolute;
-  width: 70vw;
   height: 100%;
   object-fit: cover;
   object-position: center 65%;
@@ -116,6 +128,19 @@ const goToImage = (index) => {
 
 .next-btn {
   right: 10px;
+}
+
+.title{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #111;
+  font-family: 'rtsxt';
+  font-size: 8vh;
+  font-weight: bold;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
+  z-index: 10;
 }
 
 .dots-container {

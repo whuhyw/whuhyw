@@ -5,9 +5,7 @@
         <button v-if="showBackButton" class="back-button" @click="goBack">
           ←
         </button>
-        <div class="logo">
-          <router-link to="/" style="font-family: '宋体';">方寸屏间，万里河山</router-link>
-        </div>
+        <router-link class="title" to="/">方寸屏间，万里河山</router-link>
       </div>
 
       <div class="nav-links" :class="{ 'active': isMenuOpen }">
@@ -107,15 +105,15 @@ export default {
   color: #888888;
 }
 
-.logo a {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
+.title {
+  margin-top: 5px;
+  font-family: 'rtsxt';
+  font-size: 40px;
   color: #333;
+  transition: color 0.3s ease;
 }
 
-
-.logo a:hover {
+.title:hover {
   color: #888888;
 }
 
@@ -135,33 +133,4 @@ export default {
   color: #888888;
 }
 
-/* 响应式设计 */
-/* @media screen and (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 60px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background: rgba(255, 255, 255, 0.98);
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    padding-top: 2rem;
-    transition: 0.3s;
-  }
-
-  .nav-links.active {
-    left: 0;
-  }
-
-  .nav-links a {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-  }
-} */
 </style>
