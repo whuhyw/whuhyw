@@ -23,7 +23,7 @@ const firstImageUrl = (attraction) => {
         `../assets/images/${category.Name}/${attraction.Name}/${attraction.Details.Images[0]}`,
         import.meta.url
     ).href;
-    //console.log(`../assets/images/${category.Name}/${attraction.Name}/${attraction.Details.Images[0]}`);
+
     return url;
 };
 </script>

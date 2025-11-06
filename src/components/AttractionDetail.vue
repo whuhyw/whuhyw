@@ -26,7 +26,7 @@ const processedImages = computed(() => {
   var url = attraction.Details.Images.map(image =>
     new URL(`../assets/images/${category.Name}/${attraction.Name}/${image}`, import.meta.url).href
   );
-  console.log(url);
+
   return url;
 });
 </script>

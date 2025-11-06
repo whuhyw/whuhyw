@@ -30,7 +30,7 @@ export default {
     const route = useRoute()
     const router = useRouter()
 
-    // 判断是否显示返回按钮
+
     const showBackButton = computed(() => route.path !== '/')
 
     const goBack = () => {

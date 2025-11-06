@@ -35,7 +35,7 @@ const props = defineProps({
         required: true,
     }
 });
-//console.log(props.zen);
+
 const handleClick = () => {
     router.push(`/attraction/${props.categoryId}/${props.attractionId}`);
 };
@@ -62,7 +62,7 @@ const handleClick = () => {
 }
 
 .attraction-card-image {
-    /* visibility: collapse; */
+
     aspect-ratio: 1;
     width: 100%;
     height: 100%;

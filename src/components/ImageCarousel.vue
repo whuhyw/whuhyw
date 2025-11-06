@@ -34,7 +34,7 @@
 <script setup>
 import { ref } from 'vue';
 
-// 1. 接收从父组件 App.vue 传来的 images 数组
+
 const props = defineProps({
   images: {
     type: Array,

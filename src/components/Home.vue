@@ -27,7 +27,7 @@ const images = [
   new URL('@/assets/images/蜿蜒之脉/雅鲁藏布江/3.png', import.meta.url).href,
   new URL('@/assets/images/蜿蜒之脉/黄河/4.png', import.meta.url).href,
   new URL('@/assets/images/瑰丽之彩/黄龙/3.png', import.meta.url).href,
-  // 在这里添加更多图片路径
+
 ]
 
 const handleWheel = (event) => {

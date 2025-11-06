@@ -54,7 +54,7 @@ const handleClick = () => {
 }
 
 .category-card-image {
-    /* visibility: collapse; */
+
     aspect-ratio: 4/3;
     width: 100%;
     object-fit:cover;

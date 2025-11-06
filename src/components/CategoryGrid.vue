@@ -4,12 +4,7 @@ import scenicData from '@/data/scenicData.js';
 
 const categories = scenicData.Categories;
 const getCoverImage = (category) => {
-    // const url = new URL(
-    //     `../assets/images/${category.Name}/${category.CoverImage}`,
-    //     import.meta.url
-    // ).href;
-    // console.log(url);
-    // console.log(`../assets/images/${category.Name}/${category.CoverImage}`);
+
     return `./src/assets/images/${category.Name}/${category.CoverImage}`;
 };
 </script>

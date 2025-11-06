@@ -31,10 +31,6 @@ const router = createRouter({
   routes
 });
 
-// router.beforeEach((to, from, next) => {
-//   console.log('Navigating to:', to.path)
-//   console.log('Component:', to.matched[0]?.components?.default)
-//   next()
-// })
+
 
 export default router;
