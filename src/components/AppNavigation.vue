@@ -108,6 +108,7 @@ export default {
   margin-top: 5px;
   font-family: 'rtsxt';
   font-size: 40px;
+  color: #2c3e50;
   transition: color 0.3s ease;
 }
 
