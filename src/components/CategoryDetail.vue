@@ -39,7 +39,7 @@ const firstImageUrl = (attraction) => {
 
 .category-detail-page h1 {
     font-family: 'rtsxt', '宋体', sans-serif;
-    font-size: 2.2rem;
+    font-size: 3.5rem;
     font-weight: 500;
     color: var(--h1-color);
     margin-top: 2vw;
