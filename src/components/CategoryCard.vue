@@ -42,8 +42,11 @@ const handleClick = () => {
     width: 100%;
     height: fit-content;
     border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease-in-out;
+    padding: 15px;
+    overflow: hidden;
 }
 
 #classified:hover {
@@ -59,10 +62,14 @@ const handleClick = () => {
 }
 
 h2 {
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
     font-family: '宋体';
+    color: var(--h2-color);
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
 }
 </style>

@@ -1,8 +1,10 @@
 <template>
     <div id="attraction" @click="handleClick">
         <img id="image" :src="props.imgSrc" />
-        <h2>{{ props.title }}</h2>
-        <p>{{ props.zen }}</p>
+        <div class="content-container">
+            <h2>{{ props.title }}</h2>
+            <p>{{ props.zen }}</p>
+        </div>
     </div>
 </template>
 
@@ -48,8 +50,11 @@ const handleClick = () => {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease-in-out;
+    padding: 15px;
+    overflow: hidden;
 }
 
 .attraction:hover {
@@ -65,10 +70,29 @@ const handleClick = () => {
     border-radius: 10px;
 }
 
+.content-container {
+    width: 100%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+}
+
 h2 {
-    margin-top: 10px;
+    margin: 10px 0;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: left;
-    font-family: '宋体';}
+    font-family: '宋体';
+    color: var(--h2-color);
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-family: '宋体';
+    line-height: 1.5;
+}
 </style>

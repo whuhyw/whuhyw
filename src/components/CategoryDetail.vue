@@ -31,17 +31,19 @@ const firstImageUrl = (attraction) => {
 <style scoped>
 .categoryDetail {
     padding-top: 60px;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    background-color: var(--bg-color);
+    min-height: 100vh;
 }
 
 .categoryDetail h1 {
     font-family: 'rtsxt', '宋体', sans-serif;
     font-size: 2.2rem;
     font-weight: 500;
-    color: #4a5568;
+    color: var(--h1-color);
     margin-top: 2vw;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .attractions {
@@ -50,7 +52,7 @@ const firstImageUrl = (attraction) => {
     padding-right: 1vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 5vw;
+    gap: 3vw;
 }
 
 @media (max-width: 1200px) {

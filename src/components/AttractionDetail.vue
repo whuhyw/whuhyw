@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="attraction-detail-container">
     <ImageCarousel :images="processedImages" />
     <AmapViewer id="amap" :marker="attraction.Details.Coordinates" marker-title="attraction.Name"
       info-content="<h3>东方明珠塔</h3><p>上海的标志性建筑。</p>" />
@@ -32,16 +32,25 @@ const processedImages = computed(() => {
 </script>
 
 <style scoped>
+.attraction-detail-container {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+}
+
 #content {
-  margin: 1.5rem 1.5rem;
+  margin: 2rem 6vw;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
 }
 
 #content h1 {
   font-family: 'rtsxt', '宋体', sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1rem;
+  color: var(--h1-color);
+  margin-bottom: 1.5rem;
 }
 
 #amap {
@@ -53,7 +62,8 @@ const processedImages = computed(() => {
 
 #summary {
   margin-top: 1rem;
-  margin-left: 1rem;
-  font-size: large;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
 }
 </style>

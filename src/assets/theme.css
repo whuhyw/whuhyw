@@ -1,0 +1,52 @@
+
+/* 多样化自然风光主题色方案 */
+:root {
+  /* 主色调 - 中性深灰色，适应各种自然风光 */
+  --primary-color: #34495e;
+  --primary-light: #4a627a;
+  --primary-dark: #2c3e50;
+
+  /* 辅助色 - 温暖的沙土色，适合沙漠和山地 */
+  --secondary-color: #a0826d;
+  --secondary-light: #b89986;
+  --secondary-dark: #896b56;
+
+  /* 背景色 - 极淡的灰白色，不干扰任何自然风光 */
+  --bg-color: #f8f9fa;
+  --bg-color-soft: #ffffff;
+  --bg-color-dark: #f1f3f4;
+
+  /* 导航栏背景色 - 使用深色中性色加深印象 */
+  --navbar-bg: rgba(52, 73, 94, 0.92);
+  --navbar-bg-scrolled: rgba(44, 62, 80, 0.97);
+  --navbar-text: #ffffff;
+  --navbar-text-hover: #e0e0e0;
+
+  /* 文本色 - 深灰色，确保在各种背景上可读 */
+  --text-color: #333333;
+  --text-light: #666666;
+  --text-dark: #222222;
+
+  /* 强调色 - 日落橙红色，点缀使用 */
+  --accent-color: #e67e22;
+  --accent-light: #f39c12;
+  --accent-dark: #d35400;
+
+  /* 图片容器阴影 - 柔和中性 */
+  --image-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* 标题颜色 - 层次分明的中性色 */
+  --h1-color: var(--primary-dark);
+  --h2-color: var(--primary-color);
+  --h3-color: var(--secondary-color);
+  
+  /* 卡片背景 - 纯白，不干扰图片 */
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  
+  /* 按钮样式 - 中性色调 */
+  --button-primary-bg: var(--primary-color);
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: var(--secondary-color);
+  --button-secondary-text: #ffffff;
+}

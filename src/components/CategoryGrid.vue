@@ -16,7 +16,7 @@ const getCoverImage = (category) => {
 
 <template>
     <div id="grid">
-        <p>点击 以前往地形</p>
+        <p class="grid-intro">点击 以前往地形</p>
         <div id="classifiers">
             <CategoryCard v-for="category in categories" :title="category.Name" :imgSrc="getCoverImage(category)"
                 :categoryId="category.Id" />
@@ -31,15 +31,19 @@ const getCoverImage = (category) => {
     padding-right: 6vw;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-color);
+    min-height: 50vh;
 }
 
-#grid p {
+.grid-intro {
     font-family: "宋体";
     align-self: center;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
 #classifiers {
-    margin-top: 1vh;
     display: flex;
     flex-direction: row;
     align-items: top;

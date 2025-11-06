@@ -92,6 +92,7 @@ const goToImage = (index) => {
 
   z-index: 5;opacity: 1;
   transition: opacity 0.4s ease-in-out;
+  box-shadow: var(--image-shadow);
 }
 
 .blurred-image {
@@ -120,7 +121,7 @@ const goToImage = (index) => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(52, 73, 94, 0.7);
   color: white;
   border: none;
   padding: 10px 17px;
@@ -128,6 +129,8 @@ const goToImage = (index) => {
   font-size: 20px;
   border-radius: 7.5px;
   z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: var(--image-shadow);
 }
 
 .prev-btn {
@@ -142,7 +145,7 @@ const goToImage = (index) => {
   position: absolute;
   top: 50%;
   left: 50%;
-  color: black;
+  color: var(--primary-color);
   transform: translate(-50%, -50%);
   font-family: 'rtsxt';
   font-size: 8vh;
@@ -165,13 +168,16 @@ const goToImage = (index) => {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 .dot.active {
-  background-color: white;
+  background-color: var(--accent-color);
+  transform: scale(1.2);
+  box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
 }
 
 .scroll-hint {

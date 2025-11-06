@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" :showScrollHint="true"
       title="你想遨游怎样的中国？" />
     <CategoryGrid />
@@ -28,6 +28,10 @@ const images = [
 </script>
 
 <style scoped>
+.home-container {
+  background-color: var(--bg-color);
+}
+
 .title {
   font-size: 10vh;
   font-family: 'rtsxt';
@@ -35,5 +39,7 @@ const images = [
   top: 42vh;
   left: 20vw;
   z-index: 15;
+  color: var(--navbar-text);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 </style>

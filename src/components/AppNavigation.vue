@@ -69,15 +69,17 @@ export default {
   width: 100%;
 
   padding: 1rem 0;
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--navbar-bg);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   z-index: 100;
   height: 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .navbar.scrolled {
   padding: 0.5rem 0;
+  background: var(--navbar-bg-scrolled);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -101,19 +103,19 @@ export default {
 }
 
 .back-button:hover {
-  color: #888888;
+  color: var(--navbar-text-hover);
 }
 
 .title {
   margin-top: 5px;
   font-family: 'rtsxt';
   font-size: 40px;
-  color: #2c3e50;
+  color: var(--navbar-text);
   transition: color 0.3s ease;
 }
 
 .title:hover {
-  color: #888888;
+  color: var(--navbar-text-hover);
 }
 
 .nav-links {
@@ -123,13 +125,13 @@ export default {
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: var(--navbar-text);
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #888888;
+  color: var(--navbar-text-hover);
 }
 
 </style>
