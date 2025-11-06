@@ -27,7 +27,7 @@ const getCoverImage = (category) => {
     display: flex;
     flex-direction: column;
     background-color: var(--bg-color);
-    min-height: 50vh;
+    margin-bottom: 2rem;
 }
 
 .category-grid-intro {
@@ -35,15 +35,28 @@ const getCoverImage = (category) => {
     align-self: center;
     font-size: 1.5rem;
     color: var(--text-color);
-    margin-bottom: 1rem;
 }
 
 .category-grid-items {
-    display: flex;
-    flex-direction: row;
-    align-items: top;
-    width: 100%;
-    height: fit-content;
-    gap: 7vw;
+    margin-top: 1vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3vw;
+}
+
+@media (max-width: 748px) {
+  .category-grid-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid-items {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 </style>

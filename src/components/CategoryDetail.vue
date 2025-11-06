@@ -56,7 +56,7 @@ const firstImageUrl = (attraction) => {
 }
 
 @media (max-width: 1200px) {
-  .attractions {
+  .category-detail-attractions {
     grid-template-columns: repeat(3, 1fr);
     gap:4vw;
   }
