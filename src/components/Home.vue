@@ -2,16 +2,20 @@
   <div class="home-page">
     <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" :showScrollHint="true"
       title="你想遨游怎样的中国？" />
-    <CategoryGrid />
+    <CategoryGrid ref="categoryGridRef" />
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import ImageCarousel from './ImageCarousel.vue';
 import CategoryGrid from './CategoryGrid.vue';
 
 const currentImageIndex = ref(0)
+const categoryGridRef = ref(null)
+const isScrolling = ref(false)
+const scrollTimeout = ref(null)
+
 const images = [
   new URL('@/assets/images/瑰丽之彩/九寨沟/4.png', import.meta.url).href,
   new URL('@/assets/images/广袤之境/塔克拉玛干大沙漠/4.png', import.meta.url).href,
@@ -25,6 +29,69 @@ const images = [
   new URL('@/assets/images/瑰丽之彩/黄龙/3.png', import.meta.url).href,
   // 在这里添加更多图片路径
 ]
+
+const handleWheel = (event) => {
+
+  if (isScrolling.value) return
+  
+
+  const routerView = document.querySelector('.app-router-view')
+  if (!routerView) return
+  
+
+  isScrolling.value = true
+  
+
+  if (event.deltaY > 0) {
+
+    if (routerView.scrollTop < window.innerHeight * 0.8) {
+      event.preventDefault()
+      
+
+      routerView.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      })
+    } else {
+
+      isScrolling.value = false
+    }
+  } 
+
+  else if (event.deltaY < 0) {
+
+    if (routerView.scrollTop > window.innerHeight * 0.2 && routerView.scrollTop < window.innerHeight * 1.8) {
+      event.preventDefault()
+      
+
+      routerView.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    } else {
+
+      isScrolling.value = false
+    }
+  }
+  
+
+  scrollTimeout.value = setTimeout(() => {
+    isScrolling.value = false
+  }, 1000)
+}
+
+onMounted(() => {
+
+  window.addEventListener('wheel', handleWheel, { passive: false })
+})
+
+onUnmounted(() => {
+
+  window.removeEventListener('wheel', handleWheel)
+  if (scrollTimeout.value) {
+    clearTimeout(scrollTimeout.value)
+  }
+})
 </script>
 
 <style scoped>
