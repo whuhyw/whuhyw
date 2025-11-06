@@ -1,11 +1,15 @@
 <template>
   <nav class="app-navbar" :class="{ 'scrolled': isScrolled }">
     <div class="navbar-container">
-      <div style="display: flex;flex-direction: row;">
-        <button v-if="showBackButton" class="navbar-back-button" @click="goBack">
-          ←
-        </button>
-        <router-link class="navbar-title" to="/">方寸屏间，万里河山</router-link>
+      <div class="navbar-left">
+        <transition name="back-button-fade">
+          <button v-if="showBackButton" class="navbar-back-button" @click="goBack">
+            <svg class="back-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </transition>
+        <router-link class="navbar-title" :class="{ 'no-back-button': !showBackButton }" to="/">方寸屏间，万里河山</router-link>
       </div>
 
       <div class="navbar-links" :class="{ 'active': isMenuOpen }">
@@ -93,25 +97,69 @@ export default {
   align-items: center;
 }
 
+.navbar-left {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-back-button {
+  position: absolute;
+  left: 0;
   background: none;
   border: none;
-  font-size: 1.2rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
+  padding: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-back-button:hover {
   color: var(--navbar-text-hover);
+  transform: translateX(-3px);
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--navbar-text);
+}
+
+.back-button-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.back-button-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.back-button-fade-enter-from {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.back-button-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
 .navbar-title {
   margin-top: 5px;
+  position: absolute;
+  left: 44px;
+  right: 0;
+  white-space: nowrap;
+  transition: left 0.3s ease, color 0.3s ease;
   font-family: 'rtsxt';
   font-size: 40px;
   color: var(--navbar-text);
-  transition: color 0.3s ease;
+}
+
+.navbar-title.no-back-button {
+  left: 0;
 }
 
 .navbar-title:hover {

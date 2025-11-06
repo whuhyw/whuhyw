@@ -148,7 +148,7 @@ const goToImage = (index) => {
   color: var(--navbar-text);
   transform: translate(-50%, -50%);
   font-family: 'rtsxt';
-  font-size: 8vh;
+  font-size: clamp(2.25rem, 4vw, 4.5rem);
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 10;

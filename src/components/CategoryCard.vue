@@ -62,7 +62,7 @@ const handleClick = () => {
 }
 
 h2 {
-    margin: 10px 0;
+    margin-top: 10px;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
