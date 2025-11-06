@@ -1,7 +1,7 @@
 <template>
-  <div class="home-page">
+  <div class="home-page" @scroll="handleScroll">
     <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" :showScrollHint="true"
-      title="你想遨游怎样的中国？" />
+      title="你想遨游怎样的中国？" :blurAmount="blurAmount" />
     <CategoryGrid ref="categoryGridRef" />
   </div>
 </template>
@@ -15,6 +15,7 @@ const currentImageIndex = ref(0)
 const categoryGridRef = ref(null)
 const isScrolling = ref(false)
 const scrollTimeout = ref(null)
+const blurAmount = ref(0)
 
 const images = [
   new URL('@/assets/images/瑰丽之彩/九寨沟/4.png', import.meta.url).href,
@@ -29,6 +30,23 @@ const images = [
   new URL('@/assets/images/瑰丽之彩/黄龙/3.png', import.meta.url).href,
 
 ]
+
+const handleScroll = () => {
+  const routerView = document.querySelector('.app-router-view')
+  if (!routerView) return
+  
+  // 计算滚动位置相对于视口高度的比例
+  const scrollPercentage = routerView.scrollTop / window.innerHeight
+  
+  // 当向上滚动时，逐渐增加模糊程度，最大为10px
+  if (scrollPercentage > 0 && scrollPercentage <= 1) {
+    blurAmount.value = Math.min(scrollPercentage * 15, 15)
+  } else if (scrollPercentage > 1) {
+    blurAmount.value = 15 // 达到最大模糊
+  } else {
+    blurAmount.value = 0 // 没有滚动或向下滚动时，不模糊
+  }
+}
 
 const handleWheel = (event) => {
 
@@ -81,13 +99,24 @@ const handleWheel = (event) => {
 }
 
 onMounted(() => {
-
   window.addEventListener('wheel', handleWheel, { passive: false })
+  
+  // 添加对app-router-view的滚动监听
+  const routerView = document.querySelector('.app-router-view')
+  if (routerView) {
+    routerView.addEventListener('scroll', handleScroll)
+  }
 })
 
 onUnmounted(() => {
-
   window.removeEventListener('wheel', handleWheel)
+  
+  // 移除对app-router-view的滚动监听
+  const routerView = document.querySelector('.app-router-view')
+  if (routerView) {
+    routerView.removeEventListener('scroll', handleScroll)
+  }
+  
   if (scrollTimeout.value) {
     clearTimeout(scrollTimeout.value)
   }

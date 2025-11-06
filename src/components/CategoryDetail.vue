@@ -103,8 +103,6 @@ const firstImageUrl = (attraction) => {
 
 .category-detail-attractions {
     margin-top: 2vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3vw;

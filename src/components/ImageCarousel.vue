@@ -7,6 +7,7 @@
         alt="Banner Image" 
         :width="props.imgWidth"
         class="carousel-image"
+        :style="{ filter: `blur(${props.blurAmount}px)` }"
       >
     </transition>
     <transition name="image" mode="in-out">
@@ -55,6 +56,10 @@ const props = defineProps({
   showScrollHint: {
     type: Boolean,
     default: false
+  },
+  blurAmount: {
+    type: Number,
+    default: 0
   }
 });
 
