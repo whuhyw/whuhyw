@@ -1,6 +1,21 @@
 <template>
     <div class="category-detail-page">
         <h1>{{ category.Name }}</h1>
+        <div class="category-description-container">
+            <div class="description-decoration">
+                <div class="decoration-line"></div>
+                <div class="decoration-symbol">◆</div>
+                <div class="decoration-line"></div>
+            </div>
+            <div class="category-description">
+                {{ category.Description }}
+            </div>
+            <div class="description-decoration">
+                <div class="decoration-line"></div>
+                <div class="decoration-symbol">◆</div>
+                <div class="decoration-line"></div>
+            </div>
+        </div>
         <div class="category-detail-attractions">
             <AttractionCard class="attraction" v-for="attraction in category.Attractions" :title="attraction.Name"
                 :imgSrc="firstImageUrl(attraction)" :categoryId="categoryId" :zen="attraction.Zen"
@@ -44,6 +59,46 @@ const firstImageUrl = (attraction) => {
     color: var(--h1-color);
     margin-top: 2vw;
     margin-bottom: 2rem;
+}
+
+.category-description-container {
+    margin: 3rem 0;
+    padding: 2rem 3rem;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.description-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.decoration-line {
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(90deg, transparent, var(--h1-color), transparent);
+}
+
+.decoration-symbol {
+    margin: 0 15px;
+    color: var(--h1-color);
+    font-size: 1.2rem;
+}
+
+.category-description {
+    font-family: '宋体', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: center;
+    padding: 0 2rem;
+    letter-spacing: 1px;
 }
 
 .category-detail-attractions {
