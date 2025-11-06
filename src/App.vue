@@ -16,7 +16,11 @@ onMounted(() => {
 <template>
   <div class="app">
     <NavigationBar :isScrolled="isScrolled" />
-    <router-view class="app-router-view"/>
+    <router-view v-slot="{ Component }" class="app-router-view">
+  <transition name="fade" mode="out-in">
+    <component :is="Component" />
+  </transition>
+</router-view>
   </div>
 </template>
 
@@ -42,8 +46,14 @@ onMounted(() => {
   overflow-y: auto;
 }
 
-.router-view {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media (max-width: 768px) {
