@@ -1,6 +1,6 @@
 <template>
     <div class="attraction-card" @click="handleClick">
-        <img class="attraction-card-image" :src="props.imgSrc" />
+        <img class="attraction-card-image" :src="props.imgSrc" @load="imageLoaded" :class="{ 'loaded': imageIsLoaded }" />
         <div class="attraction-card-content">
             <h2>{{ props.title }}</h2>
             <p>{{ props.zen }}</p>
@@ -10,8 +10,14 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 const router = useRouter();
+const imageIsLoaded = ref(false);
+
+const imageLoaded = () => {
+  imageIsLoaded.value = true;
+};
 const props = defineProps({
     imgSrc: {
         type: String,
@@ -62,12 +68,17 @@ const handleClick = () => {
 }
 
 .attraction-card-image {
-
     aspect-ratio: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    filter: blur(5px);
+    transition: filter 0.5s ease;
+}
+
+.attraction-card-image.loaded {
+    filter: blur(0);
 }
 
 .attraction-card-content {
