@@ -14,9 +14,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="app">
+  <div class="app">
     <NavigationBar :isScrolled="isScrolled" />
-    <router-view class="router"/>
+    <router-view class="app-router-view"/>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ onMounted(() => {
   padding: 0;
 }
 
-#app {
+.app {
   padding: 0;
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@ onMounted(() => {
   flex-direction: column;
 }
 
-.router {
+.app-router-view {
   box-sizing: border-box;
   width: 100vw;
   overflow-y: auto;

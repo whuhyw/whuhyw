@@ -1,6 +1,6 @@
 <template>
-    <div id="classified" @click="handleClick">
-        <img id="image" :src="props.imgSrc"/>
+    <div class="category-card" @click="handleClick">
+        <img class="category-card-image" :src="props.imgSrc"/>
         <h2>{{ props.title }}</h2>
     </div>
 </template>
@@ -34,7 +34,7 @@ const handleClick = () => {
 </script>
 
 <style scoped>
-#classified {
+.category-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,11 +49,11 @@ const handleClick = () => {
     overflow: hidden;
 }
 
-#classified:hover {
+.category-card:hover {
     transform: scale(1.05);
 }
 
-#image {
+.category-card-image {
     /* visibility: collapse; */
     aspect-ratio: 4/3;
     width: 100%;

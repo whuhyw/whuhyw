@@ -9,7 +9,7 @@
 
 
 <template>
-  <div class="map-container" ref="mapContainer"></div>
+  <div class="amap-container" ref="mapContainer"></div>
 </template>
 
 <script setup>
@@ -82,7 +82,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.map-container {
+.amap-container {
   width: 200px;
   /* 固定宽度 */
   height: 150px;

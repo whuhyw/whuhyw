@@ -1,14 +1,14 @@
 <template>
-  <nav class="navbar" :class="{ 'scrolled': isScrolled }">
-    <div class="nav-container">
+  <nav class="app-navbar" :class="{ 'scrolled': isScrolled }">
+    <div class="navbar-container">
       <div style="display: flex;flex-direction: row;">
-        <button v-if="showBackButton" class="back-button" @click="goBack">
+        <button v-if="showBackButton" class="navbar-back-button" @click="goBack">
           ←
         </button>
-        <router-link class="title" to="/">方寸屏间，万里河山</router-link>
+        <router-link class="navbar-title" to="/">方寸屏间，万里河山</router-link>
       </div>
 
-      <div class="nav-links" :class="{ 'active': isMenuOpen }">
+      <div class="navbar-links" :class="{ 'active': isMenuOpen }">
         <router-link to="/about" @click="closeMenu">关于</router-link>
       </div>
 
@@ -62,7 +62,7 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
+.app-navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -77,13 +77,13 @@ export default {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.navbar.scrolled {
+.app-navbar.scrolled {
   padding: 0.5rem 0;
   background: var(--navbar-bg-scrolled);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.nav-container {
+.navbar-container {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 20px;
@@ -93,7 +93,7 @@ export default {
   align-items: center;
 }
 
-.back-button {
+.navbar-back-button {
   background: none;
   border: none;
   font-size: 1.2rem;
@@ -102,11 +102,11 @@ export default {
   transition: color 0.3s ease;
 }
 
-.back-button:hover {
+.navbar-back-button:hover {
   color: var(--navbar-text-hover);
 }
 
-.title {
+.navbar-title {
   margin-top: 5px;
   font-family: 'rtsxt';
   font-size: 40px;
@@ -114,23 +114,23 @@ export default {
   transition: color 0.3s ease;
 }
 
-.title:hover {
+.navbar-title:hover {
   color: var(--navbar-text-hover);
 }
 
-.nav-links {
+.navbar-links {
   display: flex;
   gap: 2rem;
 }
 
-.nav-links a {
+.navbar-links a {
   text-decoration: none;
   color: var(--navbar-text);
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.navbar-links a:hover {
   color: var(--navbar-text-hover);
 }
 

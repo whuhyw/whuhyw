@@ -17,16 +17,16 @@
         class="blurred-image"
       >
     </transition>
-    <button @click="prevImage" class="carousel-btn prev-btn">&#10094;</button>
-    <button @click="nextImage" class="carousel-btn next-btn">&#10095;</button>
-    <a class="title">{{ props.title }}</a>
-    <div class="dots-container" v-if="!props.showScrollHint">
+    <button @click="prevImage" class="carousel-btn carousel-btn--prev">&#10094;</button>
+    <button @click="nextImage" class="carousel-btn carousel-btn--next">&#10095;</button>
+    <a class="carousel-title">{{ props.title }}</a>
+    <div class="carousel-dots-container" v-if="!props.showScrollHint">
       <span v-for="(image, index) in images" :key="index" @click="goToImage(index)"
-        :class="{ 'dot': true, 'active': currentImageIndex === index }"></span>
+        :class="{ 'carousel-dot': true, 'carousel-dot--active': currentImageIndex === index }"></span>
     </div>
-    <div class="scroll-hint" v-if="props.showScrollHint">
-      <i class="scroll-icon"></i>
-      <span class="scroll-text">向下滚动</span>
+    <div class="carousel-scroll-hint" v-if="props.showScrollHint">
+      <i class="carousel-scroll-icon"></i>
+      <span class="carousel-scroll-text">向下滚动</span>
     </div>
   </div>
 </template>
@@ -133,28 +133,28 @@ const goToImage = (index) => {
   box-shadow: var(--image-shadow);
 }
 
-.prev-btn {
+.carousel-btn--prev {
   left: 10px;
 }
 
-.next-btn {
+.carousel-btn--next {
   right: 10px;
 }
 
-.title{
+.carousel-title{
   position: absolute;
   top: 50%;
   left: 50%;
-  color: var(--primary-color);
+  color: var(--navbar-text);
   transform: translate(-50%, -50%);
   font-family: 'rtsxt';
   font-size: 8vh;
   font-weight: bold;
-  text-shadow: 5px 5px 0px rgba(255, 255, 255, 0.75);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
-.dots-container {
+.carousel-dots-container {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -164,7 +164,7 @@ const goToImage = (index) => {
   z-index: 10;
 }
 
-.dot {
+.carousel-dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -174,13 +174,13 @@ const goToImage = (index) => {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-.dot.active {
+.carousel-dot--active {
   background-color: var(--accent-color);
   transform: scale(1.2);
   box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
 }
 
-.scroll-hint {
+.carousel-scroll-hint {
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -192,7 +192,7 @@ const goToImage = (index) => {
   animation: float 2s ease-in-out infinite;
 }
 
-.scroll-icon {
+.carousel-scroll-icon {
   width: 25px;
   height: 40px;
   border: 2px solid white;
@@ -200,7 +200,7 @@ const goToImage = (index) => {
   position: relative;
 }
 
-.scroll-icon::before {
+.carousel-scroll-icon::before {
   content: '';
   position: absolute;
   top: 8px;
@@ -213,7 +213,7 @@ const goToImage = (index) => {
   animation: scroll 2s ease-in-out infinite;
 }
 
-.scroll-text {
+.carousel-scroll-text {
   color: white;
   margin-top: 10px;
   font-size: 12px;

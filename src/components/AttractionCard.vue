@@ -1,7 +1,7 @@
 <template>
-    <div id="attraction" @click="handleClick">
-        <img id="image" :src="props.imgSrc" />
-        <div class="content-container">
+    <div class="attraction-card" @click="handleClick">
+        <img class="attraction-card-image" :src="props.imgSrc" />
+        <div class="attraction-card-content">
             <h2>{{ props.title }}</h2>
             <p>{{ props.zen }}</p>
         </div>
@@ -42,7 +42,7 @@ const handleClick = () => {
 </script>
 
 <style scoped>
-.attraction {
+.attraction-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,11 +57,11 @@ const handleClick = () => {
     overflow: hidden;
 }
 
-.attraction:hover {
+.attraction-card:hover {
     transform: scale(1.05);
 }
 
-#image {
+.attraction-card-image {
     /* visibility: collapse; */
     aspect-ratio: 1;
     width: 100%;
@@ -70,7 +70,7 @@ const handleClick = () => {
     border-radius: 10px;
 }
 
-.content-container {
+.attraction-card-content {
     width: 100%;
     padding: 10px 5px;
     box-sizing: border-box;

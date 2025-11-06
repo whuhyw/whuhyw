@@ -1,7 +1,7 @@
 <template>
-    <div class="categoryDetail">
+    <div class="category-detail-page">
         <h1>{{ category.Name }}</h1>
-        <div class="attractions">
+        <div class="category-detail-attractions">
             <AttractionCard class="attraction" v-for="attraction in category.Attractions" :title="attraction.Name"
                 :imgSrc="firstImageUrl(attraction)" :categoryId="categoryId" :zen="attraction.Zen"
                 :attractionId="attraction.Id" />
@@ -29,7 +29,7 @@ const firstImageUrl = (attraction) => {
 </script>
 
 <style scoped>
-.categoryDetail {
+.category-detail-page {
     padding-top: 60px;
     padding-left: 6vw;
     padding-right: 6vw;
@@ -37,7 +37,7 @@ const firstImageUrl = (attraction) => {
     min-height: 100vh;
 }
 
-.categoryDetail h1 {
+.category-detail-page h1 {
     font-family: 'rtsxt', '宋体', sans-serif;
     font-size: 2.2rem;
     font-weight: 500;
@@ -46,7 +46,7 @@ const firstImageUrl = (attraction) => {
     margin-bottom: 2rem;
 }
 
-.attractions {
+.category-detail-attractions {
     margin-top: 2vw;
     padding-left: 1vw;
     padding-right: 1vw;

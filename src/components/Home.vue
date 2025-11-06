@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-page">
     <ImageCarousel :images="images" img-width="100%" carousel-height="100vh" :showScrollHint="true"
       title="你想遨游怎样的中国？" />
     <CategoryGrid />
@@ -32,7 +32,7 @@ const images = [
   background-color: var(--bg-color);
 }
 
-.title {
+.home-title {
   font-size: 10vh;
   font-family: 'rtsxt';
   position: absolute;
