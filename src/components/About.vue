@@ -98,7 +98,12 @@
       感谢伟大的 赖朴然 ！！！<br>
       我看未必啊（<br>
     </p>
-
+    <h2>
+      感谢广州美术学院教授黄小捷对本网站设计的指导
+    </h2>
+    <h1>
+      WHUHYW Present
+    </h1>
   </div>
 </template>
 
@@ -116,6 +121,14 @@
   font-size: 3.5rem;
   font-weight: 500;
   color: var(--h1-color);
+  margin-top: 2vw;
+  margin-bottom: 2rem;
+}
+
+.about-page h2 {
+  font-family: '宋体';
+  font-size: 2rem;
+  font-weight: 500;
   margin-top: 2vw;
   margin-bottom: 2rem;
 }
