@@ -29,10 +29,4 @@ coverage
 
 *.tsbuildinfo
 
-*.png
-*.jpg
-*.webp
 *.txt
-!src/assets/images/广袤之境/呼伦贝尔大草原/1.png
-!src/assets/images/广袤之境/呼伦贝尔大草原/2.png
-!src/assets/images/广袤之境/呼伦贝尔大草原/3.png
